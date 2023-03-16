@@ -111,7 +111,7 @@
 		$droite_iframe = '<iframe src="https://nuitducode.github.io/scratch/master/" style="border:none;width:100%;height:99%"></iframe>';
 	}
 	if ($atelier['droite_type'] == 'pyxel') {
-		$droite_iframe = '<iframe src="https://pyxelstudio-dev/new-project/cahiernum" style="border:none;width:100%;height:99%"></iframe>';
+		$droite_iframe = '<iframe src="https://pyxelstudio-dev/open-project/cahiernum" style="border:none;width:100%;height:99%"></iframe>';
 	}	
 	if ($atelier['droite_type'] == 'geogebra') {
 		$droite_iframe = '<iframe src="https://www.geogebra.org/classic?lang=fr" style="border:none;width:100%;height:99%"></iframe>';
