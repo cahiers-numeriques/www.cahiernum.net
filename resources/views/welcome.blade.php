@@ -157,7 +157,10 @@
 			<div class="col-md-2 offset-md-5 text-center" style="text-align:justify;">
 				<div class="d-grid gap-2">
 				  	<button class="btn btn-danger btn-sm font-monospace" type="button" data-bs-toggle="collapse" href="#collapse_lien" role="button" aria-expanded="false" aria-controls="collapse_lien">créer un cahier</button>
+					<?php
+					/*
 				  	<button class="btn btn-link font-monospace" style="font-size:75%;" type="button" data-bs-toggle="modal" data-bs-target="#modifierModal">modifier un cahier</button>
+
 
 					<!-- MODAL -->
 					<div class="modal fade" id="modifierModal" tabindex="-1" aria-labelledby="modifierModalLabel" aria-hidden="true">
@@ -174,7 +177,9 @@
 						</div>
 					</div>
 					<!-- /MODAL -->
-
+					*/
+					?>
+					
 				</div>
 
 			</div>
@@ -268,6 +273,11 @@
                             <div class="mb-2">
                                 <input id="d_scratch" name="d_" class="radio_input form-check-input" type="radio" onclick="input_status(this.name)" value="d_scratch" />
     						    <label for="d_scratch" class="form-check-label">Scratch</label>
+                            </div>
+
+                            <div class="mb-2">
+                                <input id="d_pyxel" name="d_" class="radio_input form-check-input" type="radio" onclick="input_status(this.name)" value="d_pyxel" />
+    						    <label for="d_pyxel" class="form-check-label">Pyxel</label>
                             </div>
 
                             <div class="mb-2">

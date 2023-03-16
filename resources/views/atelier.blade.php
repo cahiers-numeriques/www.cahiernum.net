@@ -89,7 +89,8 @@
 <body>
 	<?php
 	$atelier = App\Models\Atelier::where('jeton', $jeton)->first();
-	$lien_retour = ($atelier['lien_retour'] !== "") ? trim($atelier['lien_retour']) : '/';
+
+	$lien_retour = ($atelier['lien_retour']) ? trim($atelier['lien_retour']) : './..';
 
 	if ($atelier['gauche_type'] == 'video') {
 		$gauche_iframe = preg_replace('/width\s*=\s*".*?"/', "", $atelier['gauche_input']);
@@ -109,6 +110,9 @@
 	if ($atelier['droite_type'] == 'scratch') {
 		$droite_iframe = '<iframe src="https://nuitducode.github.io/scratch/master/" style="border:none;width:100%;height:99%"></iframe>';
 	}
+	if ($atelier['droite_type'] == 'pyxel') {
+		$droite_iframe = '<iframe src="https://pyxelstudio-dev/new-project/cahiernum" style="border:none;width:100%;height:99%"></iframe>';
+	}	
 	if ($atelier['droite_type'] == 'geogebra') {
 		$droite_iframe = '<iframe src="https://www.geogebra.org/classic?lang=fr" style="border:none;width:100%;height:99%"></iframe>';
 	}
