@@ -172,6 +172,11 @@
 									</div>
 
 									<div class="mb-2">
+									<input id="d_pyxel" name="d_" class="radio_input form-check-input" type="radio" onclick="input_status(this.name)" value="d_pyxel" @if($atelier['droite_type'] == 'pyxel') checked @endif />
+									<label for="d_pyxel" class="form-check-label">Pyxel</label>
+									</div>
+
+									<div class="mb-2">
 									<input id="d_geogebra" name="d_" class="radio_input form-check-input" type="radio" onclick="input_status(this.name)" value="d_geogebra" @if($atelier['droite_type'] == 'geogebra') checked @endif />
 									<label for="d_geogebra" class="form-check-label">GeoGebra</label>
 									</div>
