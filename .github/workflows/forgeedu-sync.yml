@@ -1,4 +1,4 @@
-name: ♻️ GITLAB-SYNC
+name: ♻️ Sync_GITHUB_FORGEEDU
 
 on:
   - push
