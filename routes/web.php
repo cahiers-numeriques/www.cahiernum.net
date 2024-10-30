@@ -14,18 +14,10 @@ use App\Http\Controllers\SiteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', function () {return view('welcome');})->name('welcome');
+Route::post('/', [SiteController::class, 'creer_cahier_post'])->name('creer-cahier-post');
 
-Route::post('/', [SiteController::class, 'creer_atelier_post'])->name('creer-atelier-post');
+Route::get('/modifier', function () {return view('modifier');})->name('modifier');
+Route::post('/modifier', [SiteController::class, 'modifier_cahier_post'])->name('modifier-cahier-post');
 
-Route::get('/modifier', function () {
-    return view('modifier');
-})->name('modifier');
-
-Route::post('/modifier', [SiteController::class, 'modifier_atelier_post'])->name('modifier-atelier-post');
-
-Route::get('/{jeton}', function($jeton) {
-    return view("atelier", ["jeton"=>$jeton]);
-})->name('atelier');
+Route::get('/{jeton}', function($jeton_public) {return view("cahier", ["jeton_public"=>$jeton_public]);})->name('cahier');

@@ -67,8 +67,12 @@
 			<div class="col-md-1 offset-md-2 text-center">
 				<h1><img src="{{ asset('img/cahiernumerique.png') }}" width="100%" alt="CAHIER NUMERIQUE" /></h1>
 				<div class="mt-3">
-					<a href="https://github.com/cahier-numerique/www.cahiernum.net/discussions" target="_blank" class="me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="discussions"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill="#bdc3c7" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg></a>
-					<a href="https://github.com/cahier-numerique/www.cahiernum.net/issues" target="_blank" class="ms-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="signalement de bogue"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill="#bdc3c7" d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path><path fill="#bdc3c7" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path></svg></a>
+					<a href="https://twitter.com/cahiernum" class="me-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="twitter / X">
+						<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 448 512"><path fill="#bdc3c7" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"/></svg>
+					</a>
+					<a href="https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net/-/issues" target="_blank" class="ms-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="signalement de bogue" style="padding-bottom:4px;">
+						<svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 512 512"><path fill="#bdc3c7" d="M256 0c53 0 96 43 96 96l0 3.6c0 15.7-12.7 28.4-28.4 28.4l-135.1 0c-15.7 0-28.4-12.7-28.4-28.4l0-3.6c0-53 43-96 96-96zM41.4 105.4c12.5-12.5 32.8-12.5 45.3 0l64 64c.7 .7 1.3 1.4 1.9 2.1c14.2-7.3 30.4-11.4 47.5-11.4l112 0c17.1 0 33.2 4.1 47.5 11.4c.6-.7 1.2-1.4 1.9-2.1l64-64c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-64 64c-.7 .7-1.4 1.3-2.1 1.9c6.2 12 10.1 25.3 11.1 39.5l64.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c0 24.6-5.5 47.8-15.4 68.6c2.2 1.3 4.2 2.9 6 4.8l64 64c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-63.1-63.1c-24.5 21.8-55.8 36.2-90.3 39.6L272 240c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 239.2c-34.5-3.4-65.8-17.8-90.3-39.6L86.6 502.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l64-64c1.9-1.9 3.9-3.4 6-4.8C101.5 367.8 96 344.6 96 320l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64.3 0c1.1-14.1 5-27.5 11.1-39.5c-.7-.6-1.4-1.2-2.1-1.9l-64-64c-12.5-12.5-12.5-32.8 0-45.3z"/></svg>
+					</a>
 				</div>
 			</div>
 			<div class="col-md-7 mt-2" style="text-align:justify">
@@ -82,7 +86,7 @@
 
     // SUMMARY
     if (isset($_GET['j'])) {
-        $atelier = App\Models\Atelier::where('jeton', $_GET['j'])->first();
+        $cahier = App\Models\Cahier::where('jeton', $_GET['j'])->first();
         ?>
         <div class="container mb-5">
 
@@ -91,54 +95,54 @@
                     <div class="font-monospace small text-muted">copier-coller les données ci-dessous afin de les conserver</div>
                     <div class="p-3 mb-3" style="background-color:white;border:solid 1px silver;border-radius:4px">
 
-                        @if (isset($atelier['titre']))
+                        @if (isset($cahier['titre']))
                         <div class="mb-3">
                             <div class="text-danger font-monospace small lh-1">Titre</div>
-                            <p>{{$atelier['titre']}}</p>
+                            <p>{{$cahier['titre']}}</p>
                         </div>
                         @endif
 
-                        @if (isset($atelier['consignes']))
+                        @if (isset($cahier['consignes']))
                         <div class="mb-3">
                             <div class="text-danger font-monospace small lh-1">Consignes</div>
-                            <div class="p-3 text-break" style="border-radius:4px;background-color:#fbfbfb">{!! nl2br($atelier['consignes']) !!}</div>
+                            <div class="p-3 text-break" style="border-radius:4px;background-color:#fbfbfb">{!! nl2br($cahier['consignes']) !!}</div>
                         </div>
                         @endif
 
-                        @if (isset($atelier['lien_retour']))
+                        @if (isset($cahier['lien_retour']))
                         <div class="mb-3">
                             <div class="text-danger font-monospace small lh-1">Lien retour</div>
-                            <p><a href=">{{ $atelier['lien_retour'] }}" target="_blank" class="font-monospace">{{ $atelier['lien_retour'] }}</a></p>
+                            <p><a href=">{{ $cahier['lien_retour'] }}" target="_blank" class="font-monospace">{{ $cahier['lien_retour'] }}</a></p>
                         </div>
                         @endif
 
                         <div class="text-danger font-monospace small lh-1">Partie gauche</div>
                         <ul>
-                            <li>Type: {{ strtoupper($atelier['gauche_type']) }}</li>
+                            <li>Type: {{ strtoupper($cahier['gauche_type']) }}</li>
                             <li>
 								Données
-								<div class="p-3 font-monospace small text-muted text-break" style="border-radius:4px;background-color:#fbfbfb">{{ $atelier['gauche_input'] }}</div>
+								<div class="p-3 font-monospace small text-muted text-break" style="border-radius:4px;background-color:#fbfbfb">{{ $cahier['gauche_input'] }}</div>
 							</li>
                         </ul>
                         <div class="text-danger font-monospace small lh-1">Partie droite</div>
                         <ul>
-                            <li>Type: {{ strtoupper($atelier['droite_type']) }}</li>
-                            @if (!in_array($atelier['droite_type'], ['scratch','basthon', 'geogebra', 'blockscad']))
+                            <li>Type: {{ strtoupper($cahier['droite_type']) }}</li>
+                            @if (!in_array($cahier['droite_type'], ['scratch','basthon', 'geogebra', 'blockscad']))
                             <li>
 								Données
-								<div class="p-3 font-monospace small text-muted text-break" style="border-radius:4px;background-color:#fbfbfb">{{ $atelier['droite_input'] }}</div>
+								<div class="p-3 font-monospace small text-muted text-break" style="border-radius:4px;background-color:#fbfbfb">{{ $cahier['droite_input'] }}</div>
 							</li>
                             @endif
                         </ul>
                         <div>
-                            <span class="text-danger font-monospace small">Lien à partager :</span> <kbd><a href="https://www.cahiernum.net/{{ strtoupper($atelier['jeton']) }}" target="_blank" class="font-monospace text-white">cahiernum.net/{{ strtoupper($atelier['jeton']) }}</a></kbd>
+                            <span class="text-danger font-monospace small">Lien à partager :</span> <kbd><a href="https://www.cahiernum.net/{{ strtoupper($cahier['jeton']) }}" target="_blank" class="font-monospace text-white">cahiernum.net/{{ strtoupper($cahier['jeton']) }}</a></kbd>
                         </div>
 
     			    </div>
 
                     <div class="text-center">
 						<a class="btn btn-secondary btn-sm font-monospace" href="/" role="button">QUITTER</a>
-						<a class="btn btn-light btn-sm font-monospace" href="/modifier?m={{ $atelier['jeton'] }}" role="button">MODIFIER</a>
+						<a class="btn btn-light btn-sm font-monospace" href="/modifier?m={{ $cahier['jeton'] }}" role="button">MODIFIER</a>
 					</div>
 
     			</div>
@@ -225,7 +229,7 @@
 				";
 				?>
 
-				<form id="collapse_lien" class="row collapse {{ $collapse }} mt-3" action="{{ route('creer-atelier-post') }}" method="POST">
+				<form id="collapse_lien" class="row collapse {{ $collapse }} mt-3" action="{{ route('creer-cahier-post') }}" method="POST">
 
                     @csrf
 
@@ -236,28 +240,28 @@
                             <div class="mb-2 text-center text-danger">PARTIE GAUCHE</div>
 
                             <div class="mb-2">
-                                <input id="g_video" name="g_" class="radio_input form-check-input" type="radio" onclick="input_status(this.name)" value="g_video" />
+                                <input id="g_video" name="gauche['type']" class="radio_input form-check-input" type="radio" onclick="input_status(this.id)" value="video" />
     						    <label for="g_video" class="form-check-label">Vidéo</label> <sup data-bs-container="body" data-bs-html="true" data-bs-trigger="hover focus" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="{!! $infos_video !!}"><i class="fas fa-question-circle"></i></sup>
     							<div class="ms-3">
-									<textarea id="g_video_input" name="gauche" class="form-control font-monospace" rows="7" style="font-size:0.875rem;display:none"></textarea>
+									<textarea id="g_video_input" name="gauche['data']" class="form-control font-monospace" rows="7" style="font-size:0.875rem;display:none"></textarea>
 								</div>
                             </div>
 
                             <div class="mb-2">
-    							<input id="g_pdf" name="g_" class="radio_input form-check-input" type="radio" onclick="input_status(this.name)" value="g_pdf" />
+    							<input id="g_pdf" name="gauche['type']" class="radio_input form-check-input" type="radio" onclick="input_status(this.id)" value="pdf" />
     						    <label for="g_pdf" class="form-check-label">PDF</label>
                                 <div id="g_pdf_info" class="ms-3 mb-1 text-warning font-monospace" style="font-size:70%;display:none">l'adresse doit être en https</div>
     							<div class="ms-3">
-									<input id="g_pdf_input" name="gauche" class="form-control form-control-sm font-monospace" style="display:none" type="text" placeholder="adresse du document pdf" disabled />
+									<input id="g_pdf_input" name="gauche['data']" class="form-control form-control-sm font-monospace" style="display:none" type="text" placeholder="adresse du document pdf" disabled />
 								</div>
                             </div>
 
                             <div>
-    							<input id="g_web" name="g_" class="radio_input form-check-input" type="radio" onclick="input_status(this.name)" value="g_web" />
+    							<input id="g_web" name="gauche['type']" class="radio_input form-check-input" type="radio" onclick="input_status(this.id)" value="web" />
     						    <label for="g_web" class="form-check-label">Page web</label>
                                 <div id="g_web_info" class="ms-3 mb-1 text-warning font-monospace" style="font-size:70%;display:none">l'adresse doit être en https</div>
     							<div class="ms-3">
-									<input id="g_web_input" name="gauche" class="form-control form-control-sm font-monospace" style="display:none" type="text" placeholder="adresse de la page" disabled />
+									<input id="g_web_input" name="gauche['data']" class="form-control form-control-sm font-monospace" style="display:none" type="text" placeholder="adresse de la page" disabled />
 								</div>
                             </div>
 
@@ -347,7 +351,7 @@
 					</div>
 
 					<div class="col-md-12 mt-3 text-center font-monospace">
-						<button type="submit" name="creer_lien" value="ok" class="btn btn-danger btn-sm">CRÉER</button>
+						<button type="submit" class="btn btn-danger btn-sm">CRÉER</button>
 					</div>
 
 				</form>
@@ -455,7 +459,12 @@
 		<div class="row mt-5">
 			<div class="col text-center font-monospace text-muted">
 				<!--<div class="small" style="color:silver;opacity:0.6">code sous <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html" target="_blank">GPLv3</a> et contenu sous <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA</a></div>-->
-				<p class="mt-1"><a href="https://twitter.com/cahiernum" class="me-3" target="_blank"><i class="fab fa-twitter fa-lg"></i></a><a href="https://github.com/cahier-numerique" class="mr-3" target="_blank"><i class="fab fa-github-alt fa-lg"></i></a></p>
+				<p class="mt-1">
+					
+					<a href="https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net" class="font-monospace" target="_blank">
+						<img src="{{ asset('img/logo_forge.svg') }}" height="40" alt="LA FORGE EDU" />Forge des Commmuns Numériques Éducatifs
+					</a>
+				</p>
 			</div>
 		</div>		
 
@@ -468,20 +477,16 @@
 	</script>
 
 	<script>
-	function input_status(name){
-		console.log(name);
+	function input_status(id){
 		for (const element of document.getElementsByClassName("radio_input")){
-			if (element.id.substring(0, 2) == name){
-				console.log(element.id.substring(0, 2));
-				if (element.checked == true){
-			        if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').style.display = "block";
-			        if(document.getElementById(element.id+'_info')) document.getElementById(element.id+'_info').style.display = "block";
-			        if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').disabled = false;
-				} else {
-					if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').style.display = "none";
-					if(document.getElementById(element.id+'_info')) document.getElementById(element.id+'_info').style.display = "none";
-            		if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').disabled = true;
-				}
+			if (element.checked == true){
+				if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').style.display = "block";
+				if(document.getElementById(element.id+'_info')) document.getElementById(element.id+'_info').style.display = "block";
+				if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').disabled = false;
+			} else {
+				if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').style.display = "none";
+				if(document.getElementById(element.id+'_info')) document.getElementById(element.id+'_info').style.display = "none";
+				if(document.getElementById(element.id+'_input')) document.getElementById(element.id+'_input').disabled = true;
 			}
 		}
 	}
