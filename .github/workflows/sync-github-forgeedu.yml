@@ -1,0 +1,29 @@
+name: Sync GitHub > ForgeEdu
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "laurent.abbal"
+          git config --global user.email "laurent.abbal@aefe.fr"
+
+      - name: Push to ForgeEdu
+        env:
+          GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_FORGEEDU }}
+        run: |
+          # Ajoute GitLab comme remote avec l'URL spécifique
+          git remote add gitlab https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
+          
+          # Pousse les changements vers GitLab
+          git push -u gitlab main
