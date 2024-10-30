@@ -1,4 +1,4 @@
-name: 🔄 Sync GitLab to GitHub
+name: 🔄 Sync ForgeEdu > GitHub
 
 on:
   workflow_dispatch:  # Permet de lancer l'action manuellement
