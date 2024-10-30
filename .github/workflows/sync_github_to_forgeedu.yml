@@ -1,0 +1,42 @@
+name: ♻️ Sync GitHub > ForgeEdu
+
+on:
+  workflow_dispatch:  # Permet de lancer l'action manuellement
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Clone complet pour éviter les problèmes de shallow clone
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "laurent.abbal"
+          git config --global user.email "laurent.abbal@aefe.fr"
+
+      - name: Add GitLab as a remote and fetch changes
+        env:
+          GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_FORGEEDU }}
+        run: |
+          # Ajoute GitLab comme remote
+          git remote add gitlab https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
+          
+          # Récupère les modifications depuis GitLab pour éviter les conflits
+          git fetch gitlab main
+
+          # Fusionne les changements de GitLab dans la branche locale
+          git merge gitlab/main --no-edit || true
+
+      - name: Push to GitLab
+        env:
+          GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_FORGEEDU }}
+        run: |
+          # Pousse les changements vers GitLab
+          git push gitlab main
