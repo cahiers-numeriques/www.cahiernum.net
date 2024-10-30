@@ -24,7 +24,7 @@ jobs:
           GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}
         run: |
           # Ajoute GitLab comme remote
-          git remote add gitlab https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
+          git remote add forgeedu https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
           
           # Pousse les changements vers GitLab
-          git push -u gitlab main
+          git push -u forgeedu main
