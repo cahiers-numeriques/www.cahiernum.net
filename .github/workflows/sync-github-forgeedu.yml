@@ -25,15 +25,15 @@ jobs:
           # Ajoute GitLab comme remote
           git remote add gitlab https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
           
-          # Récupère les changements complets pour éviter les conflits
+          # Récupère toutes les modifications depuis GitLab pour éviter les conflits
           git fetch gitlab main
-
+          
           # Fusionne les changements
           git merge gitlab/main --no-edit || true
 
-      - name: Push to GitLab
+      - name: Force Push to GitLab
         env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_FORGEEDU }}
         run: |
-          # Pousse les changements vers GitLab sans force
-          git push gitlab main
+          # Pousse les changements vers GitLab avec force
+          git push --force gitlab main
