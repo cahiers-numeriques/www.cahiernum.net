@@ -1,4 +1,4 @@
-name: Sync GitHub > ForgeEdu
+name: ♻️ Sync GitHub > ForgeEdu
 
 on:
   push:
