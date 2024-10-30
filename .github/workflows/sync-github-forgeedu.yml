@@ -18,12 +18,22 @@ jobs:
           git config --global user.name "laurent.abbal"
           git config --global user.email "laurent.abbal@aefe.fr"
 
-      - name: Push to ForgeEdu
+      - name: Add GitLab as a remote and fetch changes
         env:
-          GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_FORGEEDU }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
           # Ajoute GitLab comme remote avec l'URL spécifique
           git remote add gitlab https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
           
+          # Récupère les changements depuis GitLab pour éviter les conflits
+          git fetch gitlab main
+
+          # Fusionne les changements (sans confirmer) pour synchroniser les deux dépôts
+          git merge gitlab/main --no-edit || true
+
+      - name: Push to GitLab
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
           # Pousse les changements vers GitLab
-          git push -u gitlab main
+          git push gitlab main
