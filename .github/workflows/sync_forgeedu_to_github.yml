@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout code from GitHub
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Clone complet pour éviter les problèmes de shallow clone
 
