@@ -28,12 +28,12 @@ jobs:
           # Récupère les changements depuis GitLab pour éviter les conflits
           git fetch gitlab main
 
-          # Fusionne les changements (sans confirmer) pour synchroniser les deux dépôts
+          # Fusionne les changements sans intervention (ignore les erreurs si à jour)
           git merge gitlab/main --no-edit || true
 
-      - name: Push to GitLab
+      - name: Force Push to GitLab
         env:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
-          # Pousse les changements vers GitLab
-          git push gitlab main
+          # Pousse les changements vers GitLab avec force-with-lease pour écraser les conflits
+          git push --force-with-lease gitlab main
