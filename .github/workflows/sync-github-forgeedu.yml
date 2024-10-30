@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -12,17 +13,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 1  # Permet de démarrer avec un clone shallow
+
+      - name: Unshallow the repository
+        run: |
+          # Convertit le dépôt shallow en clone complet
+          git fetch --unshallow
 
       - name: Set up Git
         run: |
           git config --global user.name "laurent.abbal"
-          git config --global user.email "laurent.abbal@aefe.fr"
+          git config --global user.email "laurent.abbal@aefe.fr"  # Remplacez par un e-mail associé à votre compte GitLab
 
       - name: Add GitLab as a remote and fetch changes
         env:
           GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_FORGEEDU }}
         run: |
-          # Ajoute GitLab comme remote
+          # Ajoute GitLab comme remote avec l'URL spécifique
           git remote add gitlab https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
           
           # Récupère toutes les modifications depuis GitLab pour éviter les conflits
