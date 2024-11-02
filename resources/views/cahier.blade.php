@@ -1,46 +1,10 @@
 <!doctype html>
 <html lang="fr">
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="img/favicon.png">
-
-	<!-- Font Awesome -->
-	<script src="https://kit.fontawesome.com/cbfbfc2c41.js" crossorigin="anonymous"></script>
-
-	<!-- Fonts -->
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-	<!-- Bootstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-	<!-- custom.css -->
-	<link href="css/custom.css" rel="stylesheet">
-
-	<!-- Open Graph -->
-	<meta property="og:title" content="Cahier Numérique" />
-	<meta property="og:type" content="website" />
-	<meta property="og:description" content="Cahiers Numériques pour les élèves et les enseignants" />
-	<meta property="og:url" content="https://www.cahiernum.net/" />
-	<meta property="og:image" content="https://www.cahiernum.net/img/opengraph_1200x630.png" />
-	<meta property="og:image:alt" content="cahiernum.net" />
-	<meta property="og:image:type" content="image/png" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-
-	<!-- Twitter Card -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@cahiernumerique">
-	<meta name="twitter:creator" content="@cahiernumerique">
-	<meta name="twitter:title" content="Cahier Numérique">
-	<meta name="twitter:description" content="Cahiers Numériques pour les élèves et les enseignants">
-	<meta name="twitter:image" content="https://www.cahiernum.net/img/opengraph_1200x630.png">
-
-    <title>Cahier Numérique | {{ $jeton }}</title>
+	@include('inc-meta')
+    @include('markdown/inc-markdown-css')
+	@include('inc-matomo')
+	<title>Cahier Numérique | {{ $jeton_public }}</title>
 
     <style>
         html,body {
@@ -68,138 +32,130 @@
         }
     </style>
 
-	<!-- Matomo -->
-	<script>
-	var _paq = window._paq = window._paq || [];
-	/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-	_paq.push(['trackPageView']);
-	_paq.push(['enableLinkTracking']);
-	(function() {
-		var u="//www.awame.net/matomo/";
-		_paq.push(['setTrackerUrl', u+'matomo.php']);
-		_paq.push(['setSiteId', '13']);
-		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-	})();
-	</script>
-	<!-- End Matomo Code -->	
-
 </head>
 
 <body>
+
+
 	<?php
-	$atelier = App\Models\Atelier::where('jeton', $jeton)->first();
+	$cahier = App\Models\Cahier::where('jeton_public', $jeton_public)->first();
 
-	$lien_retour = ($atelier['lien_retour']) ? trim($atelier['lien_retour']) : './..';
+	$lien_retour = ($cahier['lien_retour']) ? trim($cahier['lien_retour']) : './..';
 
-	if ($atelier['gauche_type'] == 'video') {
-		$gauche_iframe = preg_replace('/width\s*=\s*".*?"/', "", $atelier['gauche_input']);
+	// PAGE GAUCHE
+	if ($cahier['gauche_type'] == 'video') {
+		$gauche_iframe = preg_replace('/width\s*=\s*".*?"/', "", $cahier['gauche_input']);
 		$gauche_iframe = preg_replace('/height\s*=\s*".*?"/', "", $gauche_iframe);
 		$gauche_iframe = preg_replace('/class\s*=\s*".*?"/', "", $gauche_iframe);
 		$gauche_iframe = preg_replace('/\s+/', " ", $gauche_iframe);
 		$gauche_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $gauche_iframe);
 	}
-	if ($atelier['gauche_type'] == 'pdf') {
-		$gauche_iframe = '<iframe src="https://docs.google.com/gview?url=' . $atelier['gauche_input'] . '&embedded=true" style="width:100%;height:100%;" frameborder="0"></iframe>';
-	}
-	if ($atelier['gauche_type'] == 'web') {
-		$gauche_iframe = '<iframe src="' . $atelier['gauche_input'] . '" style="width:100%;height:100%;" frameborder="0"></iframe>';
+
+	if ($cahier['gauche_type'] == 'pdf'
+		OR $cahier['gauche_type'] == 'web'
+		OR $cahier['gauche_type'] == 'scratch'
+		OR $cahier['gauche_type'] == 'pyxel'
+		OR $cahier['gauche_type'] == 'geogebra'
+		OR $cahier['gauche_type'] == 'basthon'
+		OR $cahier['gauche_type'] == 'blockscad') {
+			$gauche_iframe = '<iframe src="' . $cahier['gauche_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
 	}
 
-	// DROITE
-	if ($atelier['droite_type'] == 'scratch') {
-		$droite_iframe = '<iframe src="https://nuitducode.github.io/scratch/master/" style="border:none;width:100%;height:99%"></iframe>';
-	}
-	if ($atelier['droite_type'] == 'pyxel') {
-		$droite_iframe = '<iframe src="https://www.pyxelstudio.net/open-project/cahiernum" style="border:none;width:100%;height:99%"></iframe>';
-	}	
-	if ($atelier['droite_type'] == 'geogebra') {
-		$droite_iframe = '<iframe src="https://www.geogebra.org/classic?lang=fr" style="border:none;width:100%;height:99%"></iframe>';
-	}
-	if ($atelier['droite_type'] == 'basthon') {
-		$droite_iframe = '<iframe src="https://basthon.fr" style="border:none;width:100%;height:99%"></iframe>';
-	}
-	if ($atelier['droite_type'] == 'blockscad') {
-		$droite_iframe = '<iframe src="https://www.blockscad3d.com/editor/" style="border:none;width:100%;height:99%" title="blockscad"></iframe>';
-	}
-	if ($atelier['droite_type'] == 'video') {
-		$droite_iframe = preg_replace('/width\s*=\s*".*?"/', "", $atelier['droite_input']);
+
+	// PAGE DROITE
+	if ($cahier['droite_type'] == 'video') {
+		$droite_iframe = preg_replace('/width\s*=\s*".*?"/', "", $cahier['droite_input']);
 		$droite_iframe = preg_replace('/height\s*=\s*".*?"/', "", $droite_iframe);
 		$droite_iframe = preg_replace('/class\s*=\s*".*?"/', "", $droite_iframe);
 		$droite_iframe = preg_replace('/\s+/', " ", $droite_iframe);
 		$droite_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $droite_iframe);
 	}
-	if ($atelier['droite_type'] == 'pdf') {
-		$droite_iframe = '<iframe id="tuto_iframe" src="https://docs.google.com/gview?url=' . $atelier['droite_input'] . '&embedded=true" style="width:100%;height:100%" frameborder="0"></iframe>';
-	}
-	if ($atelier['droite_type'] == 'web') {
-		$droite_iframe = '<iframe id="tuto_iframe" src="' . $atelier['droite_input'] . '" style="width:100%;height:100%;" frameborder="0"></iframe>';
+
+	if ($cahier['droite_type'] == 'pdf'
+		OR $cahier['droite_type'] == 'web'
+		OR $cahier['droite_type'] == 'scratch'
+		OR $cahier['droite_type'] == 'pyxel'
+		OR $cahier['droite_type'] == 'geogebra'
+		OR $cahier['droite_type'] == 'basthon'
+		OR $cahier['droite_type'] == 'blockscad') {
+			$droite_iframe = '<iframe src="' . $cahier['droite_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
 	}
 	?>
-    <div class="grid">
-        <div style="overflow-y:hidden;">
-            <div id="gauche" style="height:100%;">
 
-                <div id="gauche_description" class="container mt-4 mb-3">
-                	<div class="row">
-                		<div class="col-md-12 text-left">
-							<a class="btn btn-download btn-xs" href="{{ $lien_retour }}" role="button"><i class="fas fa-arrow-left"></i></a>
-							@if(trim($atelier['titre']) !== "")
-							<div class="mt-3">{{ strtoupper(trim($atelier['titre'])) }}</div>
-							@endif
-							@if(trim($atelier['consignes']) !== "")
-							<div class="mt-2 p-3" style="background-color:white;border:solid 1px silver;border-radius:4px">
-								{!! trim($atelier['consignes']) !!}
+	<div class="grid">
+        <div style="overflow-y:hidden;position:relative">
+            <div id="gauche" style="width:100%;height:100%;overflow-y:scroll;direction: rtl;">
+                <div class="p-3" style="direction: ltr;">
+
+					<a class="btn btn-light btn-sm" href="{{ $lien_retour }}" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ $lien_retour }}"><i class="fas fa-arrow-left"></i></a>
+					
+					<div class="mt-3 ps-2">
+
+						@if(trim($cahier['consignes']) !== "")
+							<div class="me-2" style="float:left;margin-top:-3px;">
+								<a id="toggleButton" data-bs-toggle="collapse" href="#collapseConsignes" role="button" aria-expanded="false" aria-controls="collapseConsignes">
+									<svg id="iconSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="10">
+										<!-- Icône par défaut -->
+										<path d="m 287.65755,77.277496 -255.831894,0.0997 c -12.89151,0 -24.5834698,7.79568 -29.5801998,19.78776 -4.99669,11.992124 -2.19812999,25.681614 6.89587,34.875544 l 127.9159638,127.91595 0.0997,-0.0997 c 12.49179,12.49178 32.77732,12.49178 45.26911,0 L 310.34203,131.94083 c 9.19393,-9.19393 11.89256,-22.88538 6.89587,-34.877464 -4.99673,-11.99212 -16.58875,-19.78583 -29.58016,-19.78583 z M 159.89187,333.08403 c -8.19456,0 -16.38962,3.12298 -22.63549,9.36885 h -0.0997 L 9.2406962,470.36881 c -9.19396999,9.19393 -11.8926,22.88538 -6.89587,34.87747 4.9967,11.99212 16.5887498,19.78582 29.5801598,19.78582 H 287.75688 c 12.89151,0 24.58347,-7.7937 29.5802,-19.78582 4.99669,-11.99209 2.20009,-25.68354 -6.8939,-34.87747 L 182.52722,342.45288 c -6.24588,-6.24587 -14.44093,-9.36885 -22.63554,-9.36885 z"/>
+									</svg>
+								</a>
 							</div>
-							@endif
-                		</div>
-                	</div>
-                </div>
+						@endif
+						
+						@if(trim($cahier['titre']) !== ""){{ strtoupper(trim($cahier['titre'])) }}@endif
 
-				<div id="gauche_content">{!! $gauche_iframe !!}</div>
+					</div>
+					
+					@if(trim($cahier['consignes']) !== "")
+						<div id="collapseConsignes" class="collapse mt-2 p-3 show markdown_content border rounded">{!! trim($cahier['consignes']) !!}</div>
+					@endif
+
+					<div class="mt-3" >{!! $gauche_iframe !!}</div>
+
+				</div>
 
             </div>
         </div>
 
         <div id="poignee" class="gutter-col gutter-col-1"></div>
 
-        <div style="overflow-y:hidden;">{!! $droite_iframe !!}</div>
+		<div style="overflow-y:hidden;position:relative;height:100%;">
+			<div class="p-3" style="width:100%;height:100%;overflow-y:scroll;">{!! $droite_iframe !!}</div>
+		</div>
+
     </div>
+
+	@include('inc-bottom-js')
+	@include('markdown/inc-markdown-afficher-js')
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			const iconSvg = document.getElementById("iconSvg");
+
+			// Écoute l'événement d'ouverture du collapse
+			document.getElementById("collapseConsignes").addEventListener('shown.bs.collapse', function () {
+				// Change l'icône pour une flèche vers le haut
+				iconSvg.innerHTML = '<path d="m 287.65755,77.277496 -255.831894,0.0997 c -12.89151,0 -24.5834698,7.79568 -29.5801998,19.78776 -4.99669,11.992124 -2.19812999,25.681614 6.89587,34.875544 l 127.9159638,127.91595 0.0997,-0.0997 c 12.49179,12.49178 32.77732,12.49178 45.26911,0 L 310.34203,131.94083 c 9.19393,-9.19393 11.89256,-22.88538 6.89587,-34.877464 -4.99673,-11.99212 -16.58875,-19.78583 -29.58016,-19.78583 z M 159.89187,333.08403 c -8.19456,0 -16.38962,3.12298 -22.63549,9.36885 h -0.0997 L 9.2406962,470.36881 c -9.19396999,9.19393 -11.8926,22.88538 -6.89587,34.87747 4.9967,11.99212 16.5887498,19.78582 29.5801598,19.78582 H 287.75688 c 12.89151,0 24.58347,-7.7937 29.5802,-19.78582 4.99669,-11.99209 2.20009,-25.68354 -6.8939,-34.87747 L 182.52722,342.45288 c -6.24588,-6.24587 -14.44093,-9.36885 -22.63554,-9.36885 z"/>';
+			});
+
+			// Écoute l'événement de fermeture du collapse
+			document.getElementById("collapseConsignes").addEventListener('hidden.bs.collapse', function () {
+				// Change l'icône pour une flèche vers le bas
+				iconSvg.innerHTML = '<path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8L288 288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128zm0-429.3l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128c12.5-12.5 32.8-12.5 45.3 0z"/>';
+			});
+		});
+	</script>
 
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
     <script>
 	    Split({
-	        minSize: 200,
+	        minSize: 300,
 	        columnGutters: [{
 	            track: 1,
 	            element: document.querySelector('.gutter-col-1'),
 	        }],
 	    })
     </script>
-
-    <script>
-		var gauche_h = document.getElementById('gauche').offsetHeight;
-		var gauche_description_h = document.getElementById('gauche_description').offsetHeight;
-		var gauche_content_h = gauche_h - gauche_description_h - 40;
-		document.getElementById('gauche_content').setAttribute("style","overflow-y:hidden;height:"+gauche_content_h+"px");
-		document.getElementById('poignee').addEventListener("mouseover",  function() {
-			var gauche_h = document.getElementById('gauche').offsetHeight;
-			var gauche_description_h = document.getElementById('gauche_description').offsetHeight;
-			var gauche_content_h = gauche_h - gauche_description_h - 40;
-			document.getElementById('gauche_content').setAttribute("style","overflow-y:hidden;height:"+gauche_content_h+"px");
-		});
-    </script>
-
-	<!-- Bootstrap JS -->
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-
-	<script>
-		var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-		var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-		  return new bootstrap.Tooltip(tooltipTriggerEl)
-		})
-	</script>
 
 </body>
 </html>
