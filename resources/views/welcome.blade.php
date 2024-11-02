@@ -5,7 +5,7 @@
 	@include('inc-matomo')
 	<title>Cahiers Numériques</title>
 </head>
- 
+
 <body>
 
 	<div class="container mt-4">
