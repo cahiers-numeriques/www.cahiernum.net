@@ -27,7 +27,7 @@ jobs:
       - name: Pull latest changes from ForgeEdu
         run: |
           # Récupère les dernières modifications du dépôt distant
-          git pull forgeedu main --rebase
+          git pull forgeedu main --no-rebase
 
       - name: Push to ForgeEdu
         run: |
