@@ -135,7 +135,6 @@
 		<div class="row mt-5">
 			<div class="col text-center font-monospace text-muted">
 				<p class="mt-1">
-					
 					<a href="https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net" class="font-monospace" target="_blank">
 						<img src="{{ asset('img/logo_forge.svg') }}" height="40" alt="LA FORGE EDU" />Forge des Commmuns Numériques Éducatifs
 					</a>
