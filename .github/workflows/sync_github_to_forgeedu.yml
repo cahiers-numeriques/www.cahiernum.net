@@ -19,10 +19,6 @@ jobs:
           git config --global user.name "laurent.abbal"
           git config --global user.email "laurent.abbal@aefe.fr"
           
-      - name: Remove .github from commit temporarily
-        run: |
-          git rm -r --cached .github
-
       - name: Push to ForgeEdu
         run: |
           # Ajoute GitLab comme remote
