@@ -11,11 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Git Repo Sync
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - uses: wangchucheng/git-repo-sync@v0.1.0
-      with:
-        target-url: https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net
-        target-username: laurent.abbal
-        target-token: ${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}
+      - name: Set up Git
+        run: |
+          git config --global user.name "laurent.abbal"
+          git config --global user.email "laurent.abbal@aefe.fr"
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wangchucheng/git-repo-sync@v0.1.0
+        with:
+          target-url: https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net
+          target-username: laurent.abbal
+          target-token: ${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}
