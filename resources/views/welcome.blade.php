@@ -140,6 +140,18 @@
 					<a href="https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net" class="font-monospace" target="_blank">
 						<img src="{{ asset('img/logo_forge.svg') }}" height="40" alt="LA FORGE EDU" />Forge des Commmuns Numériques Éducatifs
 					</a>
+					| signalement de bogues:
+					<a href="https://github.com/cahiers-numeriques/www.cahiernum.net/issues" class="font-monospace" target="_blank">ici</a> ou <a href="https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net/-/issues" class="font-monospace" target="_blank">là</a>
+					| bricodé par <a tabindex="0" class="" style="color:#c83737" role="button" data-bs-container="body" data-bs-trigger="click" data-bs-html="true" data-bs-sanitize="false" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="
+					<ul class='fa-ul font-monospace small m-0 ms-4'>
+						<li><span class='fa-li pe-3' style='color:#c83737'><i class='fa-brands fa-square-x-twitter'></i></span><a href='https://x.com/laurentabbal' target='_blank'>@laurentabbal</a></li>
+						<li><span class='fa-li pe-3'style='color:#c83737'><i class='fa-brands fa-mastodon'></i></span><a href='https://mastodon.social/@laurentabbal' target='_blank'>@laurentabbal@mastodon.social</a></li>
+						<li><span class='fa-li pe-3' style='color:#c83737'><i class='fa-brands fa-github-alt'></i></span><a href='https://github.com/laurentabbal' target='_blank'>www.github.com/laurentabbal</a></li>
+						<li><span class='fa-li pe-3' style='color:#c83737'><i class='fa-brands fa-gitlab'></i></span><a href='https://forge.apps.education.fr/laurent.abbal' target='_blank'>forge.apps.education.fr/laurent.abbal</a></li>
+						<li><span class='fa-li pe-3' style='color:#c83737'><i class='fa-brands fa-linkedin'></i></span><a href='https://www.linkedin.com/in/laurentabbal/' target='_blank'>www.linkedin.com/in/laurentabbal</a></li>
+						<li><span class='fa-li pe-3' style='color:#c83737'><i class='fa-solid fa-clipboard-list'></i></span><a href='https://laurentabbal.forge.apps.education.fr/' target='_blank'>projets</a></li>
+					</ul>
+					"><i class="fas fa-user-astronaut"></i></a>
 				</p>
 			</div>
 		</div>		
