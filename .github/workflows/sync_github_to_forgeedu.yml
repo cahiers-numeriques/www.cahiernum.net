@@ -9,27 +9,13 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-
+    name: Git Repo Sync
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Git
-        run: |
-          git config --global user.name "laurent.abbal"
-          git config --global user.email "laurent.abbal@aefe.fr"
-          
-      - name: Add ForgeEdu remote
-        run: |
-          # Ajoute GitLab comme remote
-          git remote add forgeedu https://oauth2:${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
-          
-      - name: Pull latest changes from ForgeEdu
-        run: |
-          # Récupère les dernières modifications du dépôt distant
-          git pull forgeedu main --rebase
-
-      - name: Push to ForgeEdu
-        run: |
-          # Force le push vers GitLab sans se soucier des conflits
-          git push forgeedu main --force-with-lease
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - uses: wangchucheng/git-repo-sync@v0.1.0
+      with:
+        target-url: https://forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net
+        target-username: laurent.abbal
+        target-token: ${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}
