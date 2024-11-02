@@ -105,10 +105,15 @@ if (isset($cahier_id)) {
                             <i class="fa-solid fa-turn-down fa-flip-horizontal" style="vertical-align:-7px;"></i> optionnel
                         </div>
 
-                        <div>TITRE</div>
+                        <div class="text-muted font-monospace small pb-3">
+                            Les informations optionnelles ci-dessous seront placées en haut de la page gauche.
+                        </div>
+
+                        <div>TITRE DU CAHIER</div>
                         <input id="titre" name="titre" type="text" class="form-control" value="{{ $titre }}" />
 
                         <div class="mt-3">CONSIGNES</div>
+                        <div class="text-muted font-monospace small pb-1">au format <a href="https://docs.forge.apps.education.fr/tutoriels/tutomd/" target="_blank">Markdown</a></div>
                         <textarea id="markdown_content" name="consignes" class="form-control" rows="3">{{ $consignes }}</textarea>
 
                         <div class="mt-3">LIEN RETOUR</div>
@@ -137,10 +142,10 @@ if (isset($cahier_id)) {
 
 	<script>
 	function input_status(id) {
-        console.log('=================================');
-        console.log(id);
+        //console.log('=================================');
+        //console.log(id);
         document.querySelectorAll(".radio_input").forEach(element => {
-            console.log(element);
+            //console.log(element);
             const inputElement = document.getElementById(element.id + '_input');
             const infoElement = document.getElementById(element.id + '_info');
             
@@ -154,7 +159,7 @@ if (isset($cahier_id)) {
                 if (infoElement) infoElement.style.display = "none";
                 if (inputElement) inputElement.disabled = true;
             }
-            console.log(inputElement);
+            //console.log(inputElement);
         });
     }
 	</script>

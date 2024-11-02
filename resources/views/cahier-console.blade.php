@@ -34,7 +34,7 @@ if (!$cahier) {
                 <div class="row justify-content-md-center mb-4">
                     <div class="col-md-auto" style="padding:5px 20px 5px 20px;border:dashed 2px #e3342f;border-radius:8px;">
                         <div class="text-center fw-bold font-monospace small">lien secret</div>
-                        <div class="text-center rounded bg-danger text-white p-3"><a href="/cahier-console/{{strtoupper($cahier->jeton_secret)}}" target="_blank" class="text-white ffw-bold font-monospace">www.cahiernum.net/cahier-console/{{strtoupper($cahier->jeton_secret)}}</a></div>
+                        <div class="text-center rounded bg-danger text-white p-3"><a href="/console/{{strtoupper($cahier->jeton_secret)}}" target="_blank" class="text-white ffw-bold font-monospace">www.cahiernum.net/console/{{strtoupper($cahier->jeton_secret)}}</a></div>
                         <div class="small text-muted pt-1"><span class="text-danger"><i class="fas fa-exclamation-circle"></i> Ne pas partager ce lien</span><br />Il permet d'accéder de revenir sur cette page.</div>
                     </div>
                 </div>

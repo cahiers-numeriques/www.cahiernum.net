@@ -34,7 +34,7 @@
 			</div>
 		</div>
 
-		<div class="row mt-4 justify-content-center">
+		<div class="row mt-2 justify-content-center">
 			<div class="col-md-10">
 				<div class="ratio ratio-16x9">
 					<video autoplay muted loop>

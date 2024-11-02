@@ -58,6 +58,9 @@
 		OR $cahier['gauche_type'] == 'pyxel'
 		OR $cahier['gauche_type'] == 'geogebra'
 		OR $cahier['gauche_type'] == 'basthon'
+		OR $cahier['gauche_type'] == 'framapad'
+		OR $cahier['gauche_type'] == 'digidoc'
+		OR $cahier['gauche_type'] == 'apigeom'
 		OR $cahier['gauche_type'] == 'blockscad') {
 			$gauche_iframe = '<iframe src="' . $cahier['gauche_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
 	}
@@ -78,6 +81,9 @@
 		OR $cahier['droite_type'] == 'pyxel'
 		OR $cahier['droite_type'] == 'geogebra'
 		OR $cahier['droite_type'] == 'basthon'
+		OR $cahier['droite_type'] == 'framapad'
+		OR $cahier['droite_type'] == 'digidoc'
+		OR $cahier['droite_type'] == 'apigeom'
 		OR $cahier['droite_type'] == 'blockscad') {
 			$droite_iframe = '<iframe src="' . $cahier['droite_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
 	}
@@ -88,9 +94,11 @@
             <div id="gauche" style="width:100%;height:100%;overflow-y:scroll;direction: rtl;">
                 <div class="p-3" style="direction: ltr;">
 
+					<div style="float:right"><a href="/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Cahiers Numériques"><img src="{{ asset('img/favicon.png') }}" width="30" alt="CAHIER NUMERIQUE" /></a></div>
+
 					<a class="btn btn-light btn-sm" href="{{ $lien_retour }}" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ $lien_retour }}"><i class="fas fa-arrow-left"></i></a>
 					
-					<div class="mt-3 ps-2">
+					<div class="mt-3 ps-2 text-uppercase">
 
 						@if(trim($cahier['consignes']) !== "")
 							<div class="me-2" style="float:left;margin-top:-3px;">
@@ -103,12 +111,12 @@
 							</div>
 						@endif
 						
-						@if(trim($cahier['titre']) !== ""){{ strtoupper(trim($cahier['titre'])) }}@endif
+						@if(trim($cahier['titre']) !== ""){{ trim($cahier['titre']) }}@endif
 
 					</div>
 					
 					@if(trim($cahier['consignes']) !== "")
-						<div id="collapseConsignes" class="collapse mt-2 p-3 show markdown_content border rounded bg-light">{!! trim($cahier['consignes']) !!}</div>
+						<div id="collapseConsignes" class="collapse mt-2 p-2 ps-3 pe-3 show markdown_content border rounded bg-light">{!! trim($cahier['consignes']) !!}</div>
 					@endif
 
 					<div class="mt-3" >{!! $gauche_iframe !!}</div>
