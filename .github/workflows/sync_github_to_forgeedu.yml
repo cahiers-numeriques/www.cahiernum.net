@@ -31,5 +31,5 @@ jobs:
 
       - name: Push to ForgeEdu
         run: |
-          # Pousse les changements vers ForgeEdu
-          git push forgeedu main
+          # Force le push vers GitLab sans se soucier des conflits
+          git push forgeedu main --force-with-lease
