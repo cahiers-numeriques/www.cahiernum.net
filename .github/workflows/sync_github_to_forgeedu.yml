@@ -25,4 +25,4 @@ jobs:
           git remote add forgeedu https://oauth2:${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
           
           # Pousse les changements vers GitLab
-          git push -u forgeedu main --force
+          git push -u forgeedu main
