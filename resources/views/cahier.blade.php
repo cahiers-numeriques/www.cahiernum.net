@@ -9,6 +9,7 @@
     <style>
         html,body {
           height: 100%;
+		  background-color:white;
         }
         .grid {
             display: grid;
@@ -107,7 +108,7 @@
 					</div>
 					
 					@if(trim($cahier['consignes']) !== "")
-						<div id="collapseConsignes" class="collapse mt-2 p-3 show markdown_content border rounded">{!! trim($cahier['consignes']) !!}</div>
+						<div id="collapseConsignes" class="collapse mt-2 p-3 show markdown_content border rounded bg-light">{!! trim($cahier['consignes']) !!}</div>
 					@endif
 
 					<div class="mt-3" >{!! $gauche_iframe !!}</div>
