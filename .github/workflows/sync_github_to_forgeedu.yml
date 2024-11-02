@@ -18,13 +18,15 @@ jobs:
         run: |
           git config --global user.name "laurent.abbal"
           git config --global user.email "laurent.abbal@aefe.fr"
+          
+      - name: Remove .github from commit temporarily
+        run: |
+          git rm -r --cached .github
 
-      - name: Push to GitLab
-        env:
-          GITLAB_TOKEN: ${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}
+      - name: Push to ForgeEdu
         run: |
           # Ajoute GitLab comme remote
-          git remote add forgeedu https://oauth2:${GITLAB_TOKEN}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
+          git remote add forgeedu https://oauth2:${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
           
           # Pousse les changements vers GitLab
           git push -u forgeedu main
