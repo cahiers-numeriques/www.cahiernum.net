@@ -19,10 +19,17 @@ jobs:
           git config --global user.name "laurent.abbal"
           git config --global user.email "laurent.abbal@aefe.fr"
           
-      - name: Push to ForgeEdu
+      - name: Add ForgeEdu remote
         run: |
           # Ajoute GitLab comme remote
           git remote add forgeedu https://oauth2:${{ secrets.SYNC_GITHUB_TO_FORGEEDU }}@forge.apps.education.fr/cahiers-numeriques/www-cahiernum-net.git
           
-          # Pousse les changements vers GitLab
-          git push -u forgeedu main
+      - name: Pull latest changes from ForgeEdu
+        run: |
+          # Récupère les dernières modifications du dépôt distant
+          git pull forgeedu main --rebase
+
+      - name: Push to ForgeEdu
+        run: |
+          # Pousse les changements vers ForgeEdu
+          git push forgeedu main
