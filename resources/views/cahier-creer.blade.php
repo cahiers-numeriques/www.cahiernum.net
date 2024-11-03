@@ -28,7 +28,11 @@ if (isset($cahier_id)) {
 
             <div class="col-md-1">
                 <div class="text-right mb-3">
-                    <a class="btn btn-light btn-sm" href="/" role="button"><i class="fas fa-home"></i></a>
+                    @if(isset($cahier))
+                        <a class="btn btn-light btn-sm" href="/console/{{ strtoupper($cahier->jeton_secret) }}" role="button"><i class="fas fa-arrow-left"></i></a>
+                    @else
+                        <a class="btn btn-light btn-sm" href="/" role="button"><i class="fas fa-home"></i></a>
+                    @endif
                 </div>
             </div>
 
@@ -70,7 +74,7 @@ if (isset($cahier_id)) {
 
                     <div class="col-md-6">
 
-                        <div class="p-3 h-100 border rounded {{ $errors->has('pages.gauche.type') || $errors->has('pages.gauche.input') ? 'border-danger' : 'bg-light' }}">
+                        <div style="border: dashed 2px silver; {{ $errors->has('pages.gauche.type') || $errors->has('pages.gauche.input') ? 'border-color:#DC3545;' : '' }}" class="p-3 h-100 rounded ">
                             <div class="mb-2 text-center text-secondary">PAGE GAUCHE</div>
                             @php
                             $page = 'gauche';
@@ -86,7 +90,7 @@ if (isset($cahier_id)) {
 
                     <div class="col-md-6">
 
-                        <div class="p-3 h-100 border rounded {{ $errors->has('pages.droite.type') || $errors->has('pages.droite.input') ? 'border-danger' : 'bg-light' }}" >
+                        <div style="border: dashed 2px silver; {{ $errors->has('pages.gauche.type') || $errors->has('pages.gauche.input') ? 'border-color:#DC3545;' : '' }}" class="p-3 h-100 rounded ">
                             <div class="mb-2 text-center text-secondary">PAGE DROITE</div>
                             @php
                             $page = 'droite';

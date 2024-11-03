@@ -19,10 +19,11 @@ if (!$cahier) {
 
         <div class="row">
 
-            <div class="col-md-1">
-                <div class="text-right mb-3">
+            <div class="col-md-1 text-end">
+                <div class="mb-3">
                     <a class="btn btn-light btn-sm" href="/" role="button"><i class="fas fa-home"></i></a>
                 </div>
+                <div id="copie_confirmation" class="small text muted font-monospace me-1">&nbsp;</div>
             </div>
 
             <div class="col-md-11">
@@ -34,7 +35,10 @@ if (!$cahier) {
                 <div class="row justify-content-md-center mb-4">
                     <div class="col-md-auto" style="padding:5px 20px 5px 20px;border:dashed 2px #e3342f;border-radius:8px;">
                         <div class="text-center fw-bold font-monospace small">lien secret</div>
-                        <div class="text-center rounded bg-danger text-white p-3"><a href="/console/{{strtoupper($cahier->jeton_secret)}}" target="_blank" class="text-white ffw-bold font-monospace">www.cahiernum.net/console/{{strtoupper($cahier->jeton_secret)}}</a></div>
+                        <div class="text-center rounded bg-danger text-white p-3">
+                            <a id="lien_secret" href="/console/{{strtoupper($cahier->jeton_secret)}}" target="_blank" class="text-white ffw-bold font-monospace">www.cahiernum.net/console/{{strtoupper($cahier->jeton_secret)}}</a>
+                            <span class="ps-1" onclick="copier('lien_secret')" style="cursor:pointer;vertical-align:1px;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="copier"><i class="fa-regular fa-copy"></i></span>
+                        </div>
                         <div class="small text-muted pt-1"><span class="text-danger"><i class="fas fa-exclamation-circle"></i> Ne pas partager ce lien</span><br />Il permet d'accéder de revenir sur cette page.</div>
                     </div>
                 </div>
@@ -46,34 +50,45 @@ if (!$cahier) {
                         <div class="text-left small text-muted font-monospace m-0 p-0">lien public</div>
 
                         <div class="text-left fw-bold font-monospace">
-                            <a id="lien_sujet" href="/{{strtoupper($cahier->jeton_public)}}" target="_blank" class="text-dark" style="font-size:24px">www.cahiernum.net/{{strtoupper($cahier->jeton_public)}}</a>
+                            <a id="lien_public" href="/{{strtoupper($cahier->jeton_public)}}" target="_blank" class="text-dark" style="font-size:24px">www.cahiernum.net/{{strtoupper($cahier->jeton_public)}}</a>
                         </div>
 
                         <div>    		
-                            <span class="pe-1" onclick="fullscreen('fullscreen_lien_sujet')" style="cursor:pointer;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="afficher"><i class="fas fa-expand"></i></span>
-                            <div id="fullscreen_lien_sujet" class="bg-white text-center" style="display:none">
+                            <span class="pe-1" onclick="fullscreen('fullscreen_lien_public')" style="cursor:pointer;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="afficher"><i class="fas fa-expand"></i></span>
+                            <div id="fullscreen_lien_public" class="bg-white text-center" style="display:none">
                                 <br /><br /><br /><br /><br /><br />
                                 <img src="{{ asset('img/cahiernumerique.png') }}" width="100" />
                                 <br /><br /><br /><br /><br /><br /><br />
                                 <div class="text-dark fw-bold font-monospace" style="font-size:5vw;">www.cahiernum.net/{{ strtoupper($cahier->jeton_public) }}</div>
                             </div>
 
-                            <span class="ps-1" onclick="copier('lien_sujet')" style="cursor:pointer;vertical-align:1px;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="copier"><i class="fa-regular fa-copy"></i></span>
+                            <span class="ps-1" onclick="copier('lien_public')" style="cursor:pointer;vertical-align:1px;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="copier"><i class="fa-regular fa-copy"></i></span>
                             
                         </div>
-                        <div id="lien_sujet_copie_confirmation" class="small text muted font-monospace">&nbsp;</div>
-					
-
-                        <div class="mt-2 mb-4 text-center">
-                            <a class="btn btn-dark btn-sm font-monospace ml-1 mr-1" href="/cahier-creer/{{Crypt::encryptString($cahier->id)}}" role="button"><i class="fa-solid fa-pen me-2"></i>modifier</a>
-                        </div>
-
+                        
 					</div>
 				</div>
 
+                <div class="row mt-4 mb-4 g-1">
+                    <div class="col-md-6 text-end">
+                        <!-- modifier -->
+                        <a class="btn btn-dark btn-sm font-monospace me-2" href="/cahier-creer/{{Crypt::encryptString($cahier->id)}}" role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="modifier"><i class="fa-solid fa-pen"></i></a>
+                        <!-- /modifier -->
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <!-- supprimer -->
+                        <button id="supprimer_button" onclick="showConfirm('supprimer_button', 'rendre_confirm')" class="btn btn-secondary btn-sm" type="button"><i class="fa-solid fa-trash"></i></button>
+                        <span id="rendre_confirm" style="display:none">
+                            <button id="rendre_cancel" onclick="hideConfirm('supprimer_button', 'rendre_confirm')" class="btn btn-dark btn-sm" type="button"><i class="fa-solid fa-xmark"></i></button>
+                            <a class="btn btn-danger btn-sm text-white" href="/cahier-supprimer/{{Crypt::encryptString($cahier->id)}}" role="button"><i class="fa-solid fa-trash me-1"></i> {{__('confirmer')}}</a>
+                        </span>
+                    <!-- /supprimer -->
+                    </div>
+                </div>
+
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <div class="p-3 h-100 border rounded {{ $errors->has('pages.gauche.type') || $errors->has('pages.gauche.input') ? 'border-danger' : 'bg-light' }}">
+                        <div style="border: dashed 2px silver;" class="p-3 h-100 rounded">
                             <div class="mb-2 text-center text-secondary">PAGE GAUCHE</div>
                             <div class="mb-2"><i class="fa-solid fa-tag me-2"></i>{{ strtoupper($cahier->gauche_type) }}</div>
                             @if($cahier->gauche_type == 'pdf' OR $cahier->gauche_type == 'web')
@@ -85,7 +100,7 @@ if (!$cahier) {
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="p-3 h-100 border rounded {{ $errors->has('pages.droite.type') || $errors->has('pages.droite.input') ? 'border-danger' : 'bg-light' }}" >
+                        <div style="border: dashed 2px silver;" class="p-3 h-100 rounded">
                             <div class="mb-2 text-center text-secondary">PAGE DROITE</div>
                             <div class="mb-2"><i class="fa-solid fa-tag me-2"></i>{{ strtoupper($cahier->droite_type) }}</div>
                             @if($cahier->droite_type == 'pdf' OR $cahier->droite_type == 'web')
@@ -142,7 +157,7 @@ if (!$cahier) {
 			//alert("Impossible de copier le texte dans le presse-papiers. Veuillez le faire manuellement.");
 		});
 		
-		var status = document.getElementById(id+'_copie_confirmation');
+		var status = document.getElementById('copie_confirmation');
         status.innerText = "copié";
 		
 		status.style.opacity = '1';
@@ -216,6 +231,22 @@ if (!$cahier) {
         document.addEventListener("MSFullscreenChange", updateFsButton, false);
     </script>
     {{-- == /Fullscreen lien ================================================= --}}
+
+	{{-- == Mécanisme confirmation suppression cellule ======================= --}}
+	<script>
+		function showConfirm(buttonId, confirmId) {
+			// Cacher le bouton delete_button et afficher delete_confirm
+			document.getElementById(buttonId).style.display = 'none';
+			document.getElementById(confirmId).style.display = 'inline';
+		}
+
+		function hideConfirm(buttonId, confirmId) {
+			// Cacher delete_confirm et réafficher delete_button
+			document.getElementById(confirmId).style.display = 'none';
+			document.getElementById(buttonId).style.display = 'inline';
+		}
+	</script>
+	{{-- == /Mécanisme bouton confirmation =================================== --}}	
 
 </body>
 </html>
