@@ -91,6 +91,53 @@
 									<a href="https://www.cahiernum.net/32QZGE" target="_blank">Episode 6 : Ajouter des interactions entre lutins</a>
 									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/32QZGE</div>
 								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/EG8XCJ" target="_blank">Episode 7 : Ajouter des interactions entre un luton et l'arrière plan</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/EG8XCJ</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/9RZQ83" target="_blank">Episode 8 : Faire communiquer des lutins</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/9RZQ83</div>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/W7YXD8" target="_blank">Episode 9 : Utiliser le chronomètre</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/W7YXD8</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/ENZUSD" target="_blank">Episode 10 : Créer un tir (utilisation des clones)</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/ENZUSD</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/3Z7A9S" target="_blank">Episode 11 : Faire sauter un lutin</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/3Z7A9S</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/CW3S6T" target="_blank">Episode 12 : Faire sauter un lutin: version améliorée</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/CW3S6T</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/ZWKQPX" target="_blank">Episode 13 : Déplacements plus réalistes (pas d'arrêts brusques)</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/ZWKQPX</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/XU6ZGF" target="_blank">Episode 14 : Créer une trajectoire parabolique (lancer de ballon, tir...)</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/XU6ZGF</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/M6JG7H" target="_blank">Episode 15 : Faire défiler l'arrière plan (scrolling)</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/M6JG7H</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/ANVH93" target="_blank">Episode 16 : Faire défiler l'arrière plan pour donner un effet de profondeur</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/ANVH93</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/EZD9PA" target="_blank">Episode 17 : Réaliser un scrolling fini sur plusieurs arrière-plans</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/EZD9PA</div>
+								</li>
+								<li class="mt-2">
+									<a href="https://www.cahiernum.net/J7KFMX" target="_blank">Episode 18 : Réaliser un scrolling infini sur plusieurs arrière-plans</a>
+									<div class="font-monospace text-muted small"><i class="fas fa-caret-right"></i> cahiernum.net/J7KFMX</div>
+								</li>
 							</ul>
 						</div>
 					</div>
