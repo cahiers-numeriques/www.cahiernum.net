@@ -17,6 +17,10 @@ if (isset($cahier_id)) {
 	@include('inc-meta')
     @include('markdown/inc-markdown-css')
 	@include('inc-matomo')
+    <!-- Autoriser l'indexation et le suivi des liens (par défaut) -->
+    <meta name="robots" content="index, follow">
+    <!-- Description -->
+    <meta name="description" content="Création ou modification d'un Cahier Numérique. Options: vidéo, fichier PDF, page web, Scratch, Geogebra, Apigeom, Basthon, BlocksCAD, Framapad, Digidoc, Python, Pyxel. Catégories: mathématiques / technologie, programmation, documents." />
 	<title>Cahiers Numériques | Création</title>
 </head>
 

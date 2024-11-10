@@ -4,6 +4,10 @@
 	@include('inc-meta')
     @include('markdown/inc-markdown-css')
 	@include('inc-matomo')
+	<!-- Autoriser l'indexation et le suivi des liens (par défaut) -->
+	<meta name="robots" content="index, follow">
+	<!-- Description -->
+	<meta name="description" content="Cahier Numérique {{ $jeton_public }}. Document de travail (cours, tutoriel, vidéo, exercices, fichier PDF, page web...) et environnement de création (Scratch, Geogebra, Basthon, BlocksCAD, Apigeom, Framapad, Digidoc, Python, Pyxel...). Catégories: mathématiques / technologie, programmation, documents." />
 	<title>Cahier Numérique | {{ $jeton_public }}</title>
 
     <style>

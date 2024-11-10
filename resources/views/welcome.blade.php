@@ -3,6 +3,10 @@
 <head>
 	@include('inc-meta')
 	@include('inc-matomo')
+	<!-- Autoriser l'indexation et le suivi des liens (par défaut) -->
+	<meta name="robots" content="index, follow">
+	<!-- Description -->
+	<meta name="description" content="Un cahier numérique permet d'avoir, côte à côte, un document de travail (cours, tutoriel, vidéo, exercices, fichier PDF, page web...) et un environnement de création (Scratch, Geogebra, Basthon, BlocksCAD, Apigeom, Framapad, Digidoc, Python, Pyxel...). Catégories: mathématiques / technologie, programmation, documents." />
 	<title>Cahiers Numériques</title>
 </head>
  
@@ -14,8 +18,8 @@
 				<h1><img src="{{ asset('img/cahiernumerique.png') }}" width="100" alt="CAHIER NUMERIQUE" /></h1>
 
 			</div>
-			<div class="col-md-5 pt-2" style="text-align:justify">
-				Un cahier numérique permet d'avoir, côte à côte, un document de travail (cours, tutoriel, exercices...) et un environnement de création (Scratch, Geogebra, Basthon, BlocksCAD...). Formats possibles pour les documents de travail : vidéo, PDF, page web... Afin de faciliter la lecture et/ou l'utilisation des outils, les espaces peuvent être redimensionnés dynamiquement.<br />
+			<div class="col-md-6 pt-2" style="text-align:justify">
+				Un cahier numérique permet d'avoir, côte à côte, un document de travail (cours, tutoriel, exercices...) et un environnement de création (Scratch, Geogebra, Apigeom, Basthon, BlocksCAD...). Formats possibles pour les documents de travail : vidéo, PDF, page web, framapad, digidoc... Afin de faciliter la lecture et/ou l'utilisation des outils, les espaces peuvent être redimensionnés dynamiquement. Catégories: mathématiques / technologie, programmation, documents..."<br />
 				Il suffit de partager un lien avec les élèves pour qu'ils puissent accéder directement à un cahier préparé par l'enseignant.
 			</div>
 			<div class="col-md-auto text-center" style="padding-top:10px;">

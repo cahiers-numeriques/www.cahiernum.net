@@ -18,13 +18,10 @@
 <!-- Styles -->
 <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
-<!-- Description -->
-<meta name="description" content="Cahiers Numériques" />
-
 <!-- Open Graph -->
 <meta property="og:title" content="Cahiers Numériques" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="Cahiers Numériques pour les élèves et les enseignants" />
+<meta property="og:description" content="Cahiers Numériques pour les élèves et les enseignants. Côte à côte: un document de travail et un environnement de création." />
 <meta property="og:url" content="https://www.cahiernum.net/" />
 <meta property="og:image" content="https://www.cahiernum.net/img/opengraph_1200x630.png" />
 <meta property="og:image:alt" content="cahiernum.net" />
@@ -37,7 +34,7 @@
 <meta name="twitter:site" content="@cahiernumerique">
 <meta name="twitter:creator" content="@cahiernumerique">
 <meta name="twitter:title" content="Cahiers Numériques">
-<meta name="twitter:description" content="Cahiers Numériques pour les élèves et les enseignants">
+<meta name="twitter:description" content="Cahiers Numériques pour les élèves et les enseignants. Côte à côte: un document de travail et un environnement de création.">
 <meta name="twitter:image" content="https://www.cahiernum.net/img/opengraph_1200x630.png">
 
 
