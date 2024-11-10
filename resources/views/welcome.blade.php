@@ -65,7 +65,7 @@
 
 					<div class="col">
 						<div class="card h-100 p-2">
-							<div class="text-danger fw-bolder">Coder un jeu avec Scratch</div>
+							<div class="text-danger fw-bolder font-monospace">Coder un jeu avec Scratch</div>
 							<ul>
 								<li class="mt-2">
 									<a href="https://www.cahiernum.net/4WMPL6" target="_blank">Episode 1 : Déplacer un lutin avec les touches du clavier (méthode 1)</a>
@@ -144,7 +144,7 @@
 
 					<div class="col">
 						<div class="card h-100 p-2">
-							<div class="text-danger fw-bolder">Tutoriels GeoGebra</div>
+							<div class="text-danger fw-bolder font-monospace">Tutoriels GeoGebra</div>
 							<ul>
 								<li class="mt-2">
 									<a href="https://www.cahiernum.net/Z4BWPD" target="_blank">Construction d'un parallélogramme</a>
