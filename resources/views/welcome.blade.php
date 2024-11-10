@@ -19,13 +19,20 @@
 
 			</div>
 			<div class="col-md-6 pt-2" style="text-align:justify">
-				Un cahier numérique permet d'avoir, côte à côte, un document de travail (cours, tutoriel, exercices...) et un environnement de création (Scratch, Geogebra, Apigeom, Basthon, BlocksCAD...). Formats possibles pour les documents de travail : vidéo, PDF, page web, framapad, digidoc... Afin de faciliter la lecture et/ou l'utilisation des outils, les espaces peuvent être redimensionnés dynamiquement. Catégories: mathématiques / technologie, programmation, documents..."<br />
+				Un cahier numérique permet d'avoir, côte à côte, un document de travail (cours, tutoriel, exercices...) et un environnement de création (Scratch, Geogebra, Apigeom, Basthon, BlocksCAD...). Formats possibles pour les documents de travail : vidéo, PDF, page web, framapad, digidoc... Afin de faciliter la lecture et/ou l'utilisation des outils, les espaces peuvent être redimensionnés dynamiquement. Catégories: mathématiques / technologie, programmation, documents...<br />
 				Il suffit de partager un lien avec les élèves pour qu'ils puissent accéder directement à un cahier préparé par l'enseignant.
 			</div>
 			<div class="col-md-auto text-center" style="padding-top:10px;">
-				<a href="https://x.com/cahiernum" class="me-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="twitter / X">
-					<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 448 512"><path fill="#bdc3c7" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"/></svg>
-				</a>
+				<div>
+					<a href="https://x.com/cahiernum" target="_blank" data-bs-toggle="tooltip" data-bs-placement="auto" data-bs-title="twitter / X">
+						<i class="fa-brands fa-square-x-twitter fa-lg" style="color:#bdc3c7"></i>
+					</a>
+				</div>
+				<div class="mt-2">
+					<a href="https://forge.apps.education.fr/cahiers-numeriques/documentation/-/blob/main/README.md" target="_blank" data-bs-toggle="tooltip" data-bs-placement="auto" data-bs-title="documentation">
+						<i class="fa-solid fa-book fa-lg" style="color:#bdc3c7"></i>
+					</a>	
+				<div>			
 			</div>
 		</div>
 	</div>
