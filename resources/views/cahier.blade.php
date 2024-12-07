@@ -43,53 +43,80 @@
 
 
 	<?php
-	$cahier = App\Models\Cahier::where('jeton_public', $jeton_public)->first();
+	if (strpos($jeton_public, '=') !== false) {
+		// Extraire la partie query de l'URL
+		$query = ltrim($jeton_public, '?');
 
-	$lien_retour = ($cahier['lien_retour']) ? trim($cahier['lien_retour']) : './..';
+		// Convertir la chaîne de query en un tableau associatif
+		parse_str($query, $params);
 
-	// PAGE GAUCHE
-	if ($cahier['gauche_type'] == 'video') {
-		$gauche_iframe = preg_replace('/width\s*=\s*".*?"/', "", $cahier['gauche_input']);
-		$gauche_iframe = preg_replace('/height\s*=\s*".*?"/', "", $gauche_iframe);
-		$gauche_iframe = preg_replace('/class\s*=\s*".*?"/', "", $gauche_iframe);
-		$gauche_iframe = preg_replace('/\s+/', " ", $gauche_iframe);
-		$gauche_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $gauche_iframe);
-	}
-
-	if ($cahier['gauche_type'] == 'pdf'
-		OR $cahier['gauche_type'] == 'web'
-		OR $cahier['gauche_type'] == 'scratch'
-		OR $cahier['gauche_type'] == 'pyxel'
-		OR $cahier['gauche_type'] == 'geogebra'
-		OR $cahier['gauche_type'] == 'basthon'
-		OR $cahier['gauche_type'] == 'framapad'
-		OR $cahier['gauche_type'] == 'digidoc'
-		OR $cahier['gauche_type'] == 'apigeom'
-		OR $cahier['gauche_type'] == 'blockscad') {
-			$gauche_iframe = '<iframe src="' . $cahier['gauche_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
-	}
+		// Accéder aux paramètres
+		$gauche = base64_decode($params['g']) ?? null;
+		$droite = $params['d'] ?? null;
+		$retour = base64_decode($params['r']) ?? null;
 
 
-	// PAGE DROITE
-	if ($cahier['droite_type'] == 'video') {
-		$droite_iframe = preg_replace('/width\s*=\s*".*?"/', "", $cahier['droite_input']);
-		$droite_iframe = preg_replace('/height\s*=\s*".*?"/', "", $droite_iframe);
-		$droite_iframe = preg_replace('/class\s*=\s*".*?"/', "", $droite_iframe);
-		$droite_iframe = preg_replace('/\s+/', " ", $droite_iframe);
-		$droite_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $droite_iframe);
-	}
+		if (in_array($droite, ['pyxel'])){
+			$gauche_iframe = '<iframe src="' . $gauche . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
+			if ($droite == 'pyxel'){
+				$droite_iframe = '<iframe src="https://www.pyxelstudio.net/open-project/cahiernum" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
+			}
+			$lien_retour = ($retour) ? trim($retour) : './..';
+		} else {
+			echo '<pre>Adresse incorecte</pre>';
+			exit;
+		}
 
-	if ($cahier['droite_type'] == 'pdf'
-		OR $cahier['droite_type'] == 'web'
-		OR $cahier['droite_type'] == 'scratch'
-		OR $cahier['droite_type'] == 'pyxel'
-		OR $cahier['droite_type'] == 'geogebra'
-		OR $cahier['droite_type'] == 'basthon'
-		OR $cahier['droite_type'] == 'framapad'
-		OR $cahier['droite_type'] == 'digidoc'
-		OR $cahier['droite_type'] == 'apigeom'
-		OR $cahier['droite_type'] == 'blockscad') {
-			$droite_iframe = '<iframe src="' . $cahier['droite_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
+	} else {
+
+		$cahier = App\Models\Cahier::where('jeton_public', $jeton_public)->first();
+
+		$lien_retour = ($cahier['lien_retour']) ? trim($cahier['lien_retour']) : './..';
+
+		// PAGE GAUCHE
+		if ($cahier['gauche_type'] == 'video') {
+			$gauche_iframe = preg_replace('/width\s*=\s*".*?"/', "", $cahier['gauche_input']);
+			$gauche_iframe = preg_replace('/height\s*=\s*".*?"/', "", $gauche_iframe);
+			$gauche_iframe = preg_replace('/class\s*=\s*".*?"/', "", $gauche_iframe);
+			$gauche_iframe = preg_replace('/\s+/', " ", $gauche_iframe);
+			$gauche_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $gauche_iframe);
+		}
+
+		if ($cahier['gauche_type'] == 'pdf'
+			OR $cahier['gauche_type'] == 'web'
+			OR $cahier['gauche_type'] == 'scratch'
+			OR $cahier['gauche_type'] == 'pyxel'
+			OR $cahier['gauche_type'] == 'geogebra'
+			OR $cahier['gauche_type'] == 'basthon'
+			OR $cahier['gauche_type'] == 'framapad'
+			OR $cahier['gauche_type'] == 'digidoc'
+			OR $cahier['gauche_type'] == 'apigeom'
+			OR $cahier['gauche_type'] == 'blockscad') {
+				$gauche_iframe = '<iframe src="' . $cahier['gauche_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
+		}
+
+
+		// PAGE DROITE
+		if ($cahier['droite_type'] == 'video') {
+			$droite_iframe = preg_replace('/width\s*=\s*".*?"/', "", $cahier['droite_input']);
+			$droite_iframe = preg_replace('/height\s*=\s*".*?"/', "", $droite_iframe);
+			$droite_iframe = preg_replace('/class\s*=\s*".*?"/', "", $droite_iframe);
+			$droite_iframe = preg_replace('/\s+/', " ", $droite_iframe);
+			$droite_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $droite_iframe);
+		}
+
+		if ($cahier['droite_type'] == 'pdf'
+			OR $cahier['droite_type'] == 'web'
+			OR $cahier['droite_type'] == 'scratch'
+			OR $cahier['droite_type'] == 'pyxel'
+			OR $cahier['droite_type'] == 'geogebra'
+			OR $cahier['droite_type'] == 'basthon'
+			OR $cahier['droite_type'] == 'framapad'
+			OR $cahier['droite_type'] == 'digidoc'
+			OR $cahier['droite_type'] == 'apigeom'
+			OR $cahier['droite_type'] == 'blockscad') {
+				$droite_iframe = '<iframe src="' . $cahier['droite_input'] . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
+		}
 	}
 	?>
 
@@ -104,7 +131,7 @@
 					
 					<div class="mt-3 ps-2 text-uppercase">
 
-						@if(trim($cahier['consignes']) !== "")
+						@if(isset($cahier['consignes']) and trim($cahier['consignes']) !== "")
 							<div class="me-2" style="float:left;margin-top:-3px;">
 								<a id="toggleButton" data-bs-toggle="collapse" href="#collapseConsignes" role="button" aria-expanded="false" aria-controls="collapseConsignes">
 									<svg id="iconSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="10">
@@ -115,11 +142,11 @@
 							</div>
 						@endif
 						
-						@if(trim($cahier['titre']) !== ""){{ trim($cahier['titre']) }}@endif
+						@if(isset($cahier['titre']) and trim($cahier['titre']) !== ""){{ trim($cahier['titre']) }}@endif
 
 					</div>
 					
-					@if(trim($cahier['consignes']) !== "")
+					@if(isset($cahier['consignes']) and trim($cahier['consignes']) !== "")
 						<div id="collapseConsignes" class="collapse mt-2 p-2 ps-3 pe-3 show markdown_content border rounded bg-light">{!! trim($cahier['consignes']) !!}</div>
 					@endif
 
