@@ -51,17 +51,22 @@
 		parse_str($query, $params);
 
 		// Accéder aux paramètres
-		$gauche = base64_decode($params['g']) ?? null;
-		$droite = $params['d'] ?? null;
-		$retour = base64_decode($params['r']) ?? null;
-
+		if (isset($params['g'])) $gauche = base64_decode($params['g']) ?? null;
+		if (isset($params['d'])) $droite = $params['d'] ?? null;
+		if (isset($params['r'])) {
+			$retour = base64_decode($params['r']) ?? null;
+			$lien_retour = trim($retour);
+		} else {
+			$retour = '';
+			$lien_retour = '';
+		}
 
 		if (in_array($droite, ['pyxel'])){
 			$gauche_iframe = '<iframe src="' . $gauche . '" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
 			if ($droite == 'pyxel'){
 				$droite_iframe = '<iframe src="https://www.pyxelstudio.net/open-project/cahiernum" width="100%" style="min-height:800px;height:calc(100% - 7px);border:none;" frameborder="0" class="rounded"></iframe>';
 			}
-			$lien_retour = ($retour) ? trim($retour) : './..';
+			
 		} else {
 			echo '<pre>Adresse incorecte</pre>';
 			exit;
@@ -125,10 +130,14 @@
             <div id="gauche" style="width:100%;height:100%;overflow-y:scroll;direction: rtl;">
                 <div class="p-3" style="direction: ltr;">
 
-					<div style="float:right"><a href="/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Cahiers Numériques"><img src="{{ asset('img/favicon.png') }}" width="30" alt="CAHIER NUMERIQUE" /></a></div>
+					<div class="mb-2">
+						<div style="float:right"><a href="/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Cahiers Numériques"><img src="{{ asset('img/favicon.png') }}" width="30" alt="CAHIER NUMERIQUE" /></a></div>
+						@if ($lien_retour != '')
+							<a class="btn btn-light btn-sm" href="{{ $lien_retour }}" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ $lien_retour }}"><i class="fas fa-arrow-left"></i></a>
+						@endif
+						&nbsp;
+					</div>
 
-					<a class="btn btn-light btn-sm" href="{{ $lien_retour }}" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ $lien_retour }}"><i class="fas fa-arrow-left"></i></a>
-					
 					<div class="mt-3 ps-2 text-uppercase">
 
 						@if(isset($cahier['consignes']) and trim($cahier['consignes']) !== "")
