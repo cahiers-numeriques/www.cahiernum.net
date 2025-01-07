@@ -87,6 +87,10 @@
 			$gauche_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $gauche_iframe);
 		}
 
+		if ($cahier['gauche_type'] == 'img') {
+			$gauche_iframe = '<img src="' . $cahier['gauche_input'] . '" width="100%" class="rounded" />';
+		}
+
 		if ($cahier['gauche_type'] == 'pdf'
 			OR $cahier['gauche_type'] == 'web'
 			OR $cahier['gauche_type'] == 'scratch'
@@ -108,6 +112,10 @@
 			$droite_iframe = preg_replace('/class\s*=\s*".*?"/', "", $droite_iframe);
 			$droite_iframe = preg_replace('/\s+/', " ", $droite_iframe);
 			$droite_iframe = preg_replace('/<\s*iframe/', "<iframe class=\"video\"", $droite_iframe);
+		}
+
+		if ($cahier['droite_type'] == 'video') {
+			$droite_iframe = '<img src="' . $cahier['gauche_input'] . '" width="100%" class="rounded" />';
 		}
 
 		if ($cahier['droite_type'] == 'pdf'

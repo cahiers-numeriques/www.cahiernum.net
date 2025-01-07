@@ -29,7 +29,7 @@ Suivre une démarche similaire pour les autres services de vidéos.
 ";
 
 $infos_pdf = "Le fichier PDF doit être hébergé en ligne. Récupérez le lien du PDF et collez-le ci-dessous.";
-
+$infos_img = ".png, .jpg, .jpeg, .gif, .svg";
 $infos_document = "En choisissant cette option, les élèves pourront ouvrir un nouveau document de travail. Si vous souhaitez faire collaborer les élèves sur un même document, n'utilisez pas cette section. Créez vous-même un document et placez le lien du document dans la section 'Page web'.";
 
 
@@ -39,6 +39,7 @@ $categories = [
         ['video', 'Vidéo', 'textarea', '', $infos_video],
         ['pdf', 'PDF', 'text', '', $infos_pdf],
         ['web', 'Page web', 'text', '', ''],
+        ['img', 'Image', 'text', '', $infos_img],
     ],
     'mathématiques / technologie' => [
         ['geogebra', 'Geogebra', 'hidden', 'https://www.geogebra.org/classic?lang=fr', ''],
@@ -94,7 +95,7 @@ $categories = [
                         class="form-control form-control-sm font-monospace"
                         style="{{ (isset($pages[$page]['type']) AND $pages[$page]['type'] == $format[0]) ? 'display:block;' : 'display:none;' }}"
                         type="{{ $format[2] }}" 
-                        placeholder="adresse de la page"
+                        placeholder="url"
                         value="{{ (isset($pages[$page]['type']) AND $pages[$page]['type'] == $format[0]) ? $pages[$page]['input'] : $format[3] }}"
                         {{ (isset($pages[$page]['type']) AND $pages[$page]['type'] == $format[0]) ? '' : ' disabled' }}
                     />
