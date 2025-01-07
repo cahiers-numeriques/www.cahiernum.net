@@ -91,7 +91,7 @@ if (!$cahier) {
                         <div style="border: dashed 2px silver;" class="p-3 h-100 rounded">
                             <div class="mb-2 text-center text-secondary">PAGE GAUCHE</div>
                             <div class="mb-2"><i class="fa-solid fa-tag me-2"></i>{{ strtoupper($cahier->gauche_type) }}</div>
-                            @if($cahier->gauche_type == 'pdf' OR $cahier->gauche_type == 'web')
+                            @if($cahier->droite_type == 'pdf' OR $cahier->droite_type == 'web' OR $cahier->droite_type == 'img')
                                 <div style="clear:both">
                                     <div class="mb-2" style="float:left;"><i class="fa-solid fa-arrow-right me-2"></i></div>
                                     <div class="mb-2 font-monospace text-break">{{ $cahier->gauche_input}}</div>
@@ -103,7 +103,7 @@ if (!$cahier) {
                         <div style="border: dashed 2px silver;" class="p-3 h-100 rounded">
                             <div class="mb-2 text-center text-secondary">PAGE DROITE</div>
                             <div class="mb-2"><i class="fa-solid fa-tag me-2"></i>{{ strtoupper($cahier->droite_type) }}</div>
-                            @if($cahier->droite_type == 'pdf' OR $cahier->droite_type == 'web')
+                            @if($cahier->droite_type == 'pdf' OR $cahier->droite_type == 'web' OR $cahier->droite_type == 'img')
                                 <div style="clear:both">
                                     <div class="mb-2" style="float:left;"><i class="fa-solid fa-arrow-right me-2"></i></div>
                                     <div class="mb-2 font-monospace text-break">{{ $cahier->droite_input}}</div>
